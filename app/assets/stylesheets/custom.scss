@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 5em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
@@ -51,21 +51,42 @@ p {
 }
 
 /* ヘッダー */
+#header{
+  background-color: teal;
+}
 
 #logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: #fff;
+  color: white;
   text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
-  font-weight: bold;
+  font-weight: normal;
+  font-style: italic;
 }
 
 #logo:hover {
-  color: #fff;
+  color: gray;
   text-decoration: none;
+}
+
+li .header-list {
+  color: white !important;
+  font-weight: bold;
+  &:hover {
+    color: gray !important;
+  }
+}
+// ドロップダウンの大元の背景色を指定することで、色の変化を抑える➡︎指定していない時はどこから来ている？
+#dropdown-title {
+  background-color: teal;
+}
+
+li .dropdown-header {
+  background-color: rgba(200, 200, 200, 0.5);
+  font-weight: bold;
 }
 
 /* デバッグウインドウ */
