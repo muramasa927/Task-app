@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :logged_in_user, only: [:index, :show, :edit, :update, :destroy]
-  # before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
+  
   def show
-    @user = User.find(params[:id])
   end
   
   def index
@@ -32,11 +32,9 @@ class UsersController < ApplicationController
   end
   
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       #更新に成功した時の処理を記述
       flash[:success] = "ユーザー情報を更新しました"
@@ -44,6 +42,12 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+  
+  def destroy
+    @user.destroy
+    flash[:success] = "#{@user.name}のデータを削除しました"
+    redirect_to users_url
   end
   
   private
@@ -66,6 +70,14 @@ class UsersController < ApplicationController
       end
     end
     
-
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
+    
+    def admin_user
+      redirect_to root_url unless current_user.admin?
+    end
+    
 end
 
