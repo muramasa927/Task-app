@@ -13,8 +13,16 @@
 
     <% @users.each do |user| %>
       <tr>
-        <td><%= link_to user.name, user %></td>
         <td>
+          <%= link_to user.name, user %>
+          <% if user.admin? %>
+            <label class = "label label-info admin-label">管理者</label>
+          <% else %>
+            <label class = "label label-success admin-label">一般</label>
+          <% end %>
+        </td>
+        
+        <td class="delete-button">
           <% unless user.admin? %>
             <%= link_to "削除", user, method: :delete, 
             data: { confirm: "削除してよろしいですか？" },
