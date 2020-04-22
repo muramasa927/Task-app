@@ -1,23 +1,25 @@
 <% provide(:title, @user.name) %>
+<h1>ユーザー情報</h1>
 
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th><%= User.human_attribute_name :name %></th>
-          <th><%= User.human_attribute_name :email %></th>
-          <th><%= User.human_attribute_name :created_at %></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td><%= @user.name %></td>
-          <td><%= @user.email %></td>
-          <td><%= @user.created_at %></td>
-        </tr>
-      </tbody>
+    <table class="table table-hover table-bordered">
+      <tr>
+        <th class='col-md-4 table-headline'><%= User.human_attribute_name :id %></th>
+        <td ><%= @user.id %></td>
+      </tr>
+      <tr>
+        <th class='col-md-4 table-headline'><%= User.human_attribute_name :name %></th>
+        <td><%= @user.name %></td>
+      </tr>
+      <tr>
+        <th class='col-md-4 table-headline'><%= User.human_attribute_name :email %></th>
+        <td><%= @user.email %></td>
+      </tr>
+      <tr>
+        <th class='col-md-4 table-headline'><%= User.human_attribute_name :created_at %></th>
+        <td><%= @user.created_at.strftime("%Y/%m/%d %H:%M") %></td>
+      </tr>
     </table>
   </div>    
 </div>
