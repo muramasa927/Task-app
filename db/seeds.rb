@@ -14,4 +14,7 @@ User.create!(name: "管理者",
               email: email,
               password: password,
               password_confirmation: password)
+  Task.create!(task_name: "挨拶",
+              note: "こんにちは、#{User.find(n+1).name}です",
+              user_id: n+1)
 end
