@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'tasks/new'
   root 'static_pages#top'
   get '/signup', to: 'users#new'
   
@@ -9,7 +8,8 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   
   resources :users do
-      resources :tasks
-    end
+    post 'tasks/new', to: 'tasks#create'
+    resources :tasks
+  end
         
 end
