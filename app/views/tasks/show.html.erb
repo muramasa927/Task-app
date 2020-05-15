@@ -11,8 +11,12 @@
           <td class="col-md-10"><%= @task.id %></td>
         </tr>
         <tr>
-          <th class="active"><%= Task.human_attribute_name :name %></th>
+          <th class="active"><%= Task.human_attribute_name :task_name %></th>
           <td><%= @task.task_name %></td>
+        </tr>
+        <tr>
+          <th class="active"><%= Task.human_attribute_name :note %></th>
+          <td><%= simple_format(raw Rinku.auto_link(h(@task.note))) %></td>
         </tr>
         <tr>
           <th class="active"><%= Task.human_attribute_name :created_at %></th>

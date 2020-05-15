@@ -14,7 +14,7 @@ ja:
           updated_at: 更新日
         task:
           id: ID
-          name: 名称
-          description: 詳細
+          task_name: タスク名称
+          note: 詳細
           created_at: 作成日
           updated_at: 更新日

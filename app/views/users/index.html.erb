@@ -25,7 +25,7 @@
         <td class="delete-button">
           <% unless user.admin? %>
             <%= link_to "削除", user, method: :delete, 
-            data: { confirm: "削除してよろしいですか？" },
+            data: { confirm: "#{ user.name }を削除してよろしいですか？" },
             class: "btn btn-danger" %>
           <% end %>
         </td>
